@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Adventure Time</title>
+</head>
+<body>
+    <div class="container" style="background-image: url({{ url_for('static',filename = '/images/background4.jpg')}})">
+        <div class="col1">
+            <form action="/{{user.id}}/save" method="post" class="index">
+                <h1>Edit Profile</h1>
+                    <input type="hidden" name="profile_picture" value="{{url_for('static', filename='/images/profile.pic.jpg')}}">
+                    <input type="hidden" name="header" value="{{url_for('static', filename='/images/header.jpg')}}">
+                <div class="info">
+                    <label class = "register" for="birthdate"> Birthday:</label>
+                    <br>
+                    <input type="date" name="birthdate" id="birthdate" value="{{user.birthdate}}">
+                    <br>
+                    <span class="errors" id="birthdate_error"></span>
+                    <br>
+                    <input type="text" name="location" id="location" placeholder=" Location" value="{{user.location}}">
+                    <br>
+                    <span class="errors" id="location_error"></span>
+                    <br>
+                    <input type="text" name="first_name" id="first_name" placeholder=" First Name" value="{{user.first_name}}">
+                    <br>
+                    <span class="errors" id="first_name_error"></span>
+                    <br>
+                    <input type="text" name="last_name" id="last_name" placeholder=" Last Name" value="{{user.last_name}}">
+                    <br>
+                    <span class="errors" id="last_name_error"></span>
+                    <br>
+                    <input type="text" name="username" id="username" placeholder=" Username" value="{{user.username}}">
+                    <br>
+                    <span class="errors" id="username_error"></span>
+                    <br>
+                </div>
+                <input type="submit" value="submit" class="submit">
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='/js/edit.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends 'login.html' %}
+<body>
+    {% block content %}
+    <div class="container" style="background-image: url({{ url_for('static',filename = '/images/background2.jpg')}})">
+        <div class="col">
+            <form id="regform" class="index">
+                <h1>Register</h1>
+                <div class="hidden">
+                </div>
+                <div class="info">
+                    <label class = "register" for="birthdate"> Birthday:</label>
+                    <br>
+                    <input type="date" name="birthdate" id="birthdate">
+                    <br>
+                    <span class="errors" id="birthdate_error"></span>
+                    <br>
+                    <input type="text" name="location" id="location" placeholder=" Location">
+                    <br>
+                    <span class="errors" id="location_error"></span>
+                    <br>
+                    <input type="text" name="first_name" id="first_name" placeholder=" First Name">
+                    <br>
+                    <span class="errors" id="first_name_error"></span>
+                    <br>
+                    <input type="text" name="last_name" id="last_name" placeholder=" Last Name">
+                    <br>
+                    <span class="errors" id="last_name_error"></span>
+                    <br>
+                    <input type="text" name="username" id="username" placeholder=" Username">
+                    <br>
+                    <span class="errors" id="username_error"></span>
+                    <br>
+                    <input type="text" name="email" id="email_error" placeholder=" Email">
+                    <br>
+                    <span class="errors" id="email_error"></span>
+                    <br>
+                    <input type="password" name="password" id="password" placeholder=" Password">
+                    <br>
+                    <span class="errors" id="password_error"></span>
+                    <br>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder=" Confirm Password">
+                    <br>
+                    <span class="errors" id="confirm_password_error"></span>
+                    <br>
+                </div>
+                <input type="submit" value="submit" class="submit">
+                <a href="/existinguser" class="register">Sign in here!</a>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='/js/register.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

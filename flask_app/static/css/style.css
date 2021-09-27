@@ -1,0 +1,332 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 600px;
+}
+
+.active {
+    text-decoration: none;
+    color:black;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 4px solid rgb(84, 100, 66);
+}
+
+.container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container2 {
+    height: fit-content;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(182, 178, 178);
+}
+.container3 {
+    height: fit-content;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(182, 178, 178);
+}
+
+.col {
+    min-height: 580px;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.col2 {
+    margin-left: 50px;
+}
+
+.col3 {
+    margin-right: 50px;
+}
+
+.col4 {
+    margin-right: 50px;
+    width: 400px;
+}
+
+.col5 {
+    width: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.data {
+    text-decoration: none;
+    color:rgb(96, 95, 95);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.dashform {
+    padding-top: 30px;
+}
+
+.edit {
+    margin-top: 20px;
+    padding: 5px 20px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+.edit_link { 
+    margin-top: 20px;
+}
+
+.errors {
+    color:rgb(232, 101, 121);
+    width: 300px;
+    height: 15px;
+}
+
+
+.follow {
+    text-decoration: none;
+    color:rgb(96, 95, 95);
+    font-size: 15px;
+    padding: 10px;
+}
+
+.follow_info {
+    margin-top: 10px;
+}
+
+.general {
+    display: flex;
+    align-items: center;
+    color:rgb(96, 95, 95);
+}
+
+.header {
+    height: 200px;
+    width: 800px;
+}
+
+h1 {
+    color: white !important;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+h3 {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.index {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(138, 138, 138, 0.379);
+    width: 400px;
+    border-radius: 20px;
+}
+
+input {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    color: black;
+}
+
+.links {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: medium;
+}
+
+.links_feed {
+    text-decoration: none;
+    color: black;
+    font-size: medium;
+}
+
+.like_comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.main_pro {
+    height: 125px;
+    border-radius: 50%;
+    border: 2px solid white;
+    position: absolute;
+}
+
+.main_pic {
+    height: 150px;
+    border-radius: 50%;
+    margin-top: -50px;
+}
+
+.nav-left {
+    margin-left: 50px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-links {
+    width: 250px;
+    margin-right: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+    display: inline-flex;
+}
+
+.nav {
+    height: 100px;
+    width: 800px;
+    padding: 5px;
+    background-color:  rgb(84, 100, 66);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 100px;
+    border: 1px solid gainsboro;
+}
+
+.nav_profile {
+    height: 30px;
+    width: 800px;
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 100px;
+    border: 1px solid gainsboro;
+}
+
+.nav-title {
+    color: whitesmoke;
+    font-family: 'Satisfy';
+}
+
+p {
+    padding: 10px 10px 0px;
+    font-size: 15px;
+}
+
+.pro_pic {
+    height: 50px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.profile_info {
+    font-size: 20px;
+}
+
+.profile_data {
+    width: 500px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 150px;
+}
+
+.post {
+    color: white;
+    background-color: rgb(84, 100, 66);
+    width: 80px;
+    border: 2px solid black;
+}
+
+.post_name {
+    font-size: 20px;
+}
+
+.register {
+    color: white;
+}
+
+.row1 {
+    height: 200px;
+    width: 800px;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+
+.row2 {
+    width: 800px;
+    height:fit-content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+
+.row3 {
+    width: 800px;
+    height:fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+
+.row4 {
+    color: rgb(238, 238, 238);
+}
+
+.submit {
+    color: white;
+    background-color: rgb(84, 100, 66);
+    width: 200px;
+    border: 2px solid black;
+}
+
+.small_image {
+    height: 20px;
+}
+
+.trash {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.username {
+    color: rgb(125, 125, 125);
+    font-weight: 200;
+    font-size: 15px;
+}

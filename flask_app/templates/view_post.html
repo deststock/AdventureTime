@@ -1,0 +1,77 @@
+{% extends 'login.html' %}
+
+<body>
+    {% block content %}
+    <div class="container2"  >
+        <div class="nav_profile">
+            <div class="nav-left">
+                <a href="/dashboard" class="links_feed"> ← Back</a>
+            </div>
+            <div class="nav-links">
+                
+            </div>
+        </div>      
+        {% for post in posts %}
+        <div class="row3">
+            <div class="col2">
+                <div class="">
+                    {% if post.profile_picture %}
+                    <img src="{{user.profile_picture}}" alt="profile picture" class="pro_pic">
+                    {% else %}
+                    <img src="{{url_for('static', filename='/images/profile.pic.jpg')}}" alt="profile picture" class="pro_pic">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col4">
+                <br>
+                <h3 class="post_name"> {{post.first_name}} {{post.last_name}} <span class="username">@{{post.username}}</span></h3>
+                <p>  <img src="{{url_for('static', filename='/images/ping.png')}}" alt="location" class="small_image">   {{post.location}} </p>
+                {{post.content|safe}} 
+                <div class="actions">
+                    
+                </div>
+            </div>
+        </div>
+        {% for comment in comments %}
+        <div class="row3">
+            <div class="col2">
+                <div class="">
+                    <img src="{{url_for('static', filename='/images/profile.pic.jpg')}}" alt="profile picture" class="pro_pic">
+                </div>
+            </div>
+            <div class="col4">
+                <h3 class="post_name"> {{comment.first_name}} {{comment.last_name}} <span class="username">@{{comment.username}}</span></h3>
+                {{comment.content|safe}} 
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row3" >
+            <div class="col2">
+                <div class="">
+                    {% if user.profile_picture %}
+                    <img src="{{user.profile_picture}}" alt="profile picture" class="pro_pic">
+                    {% else %}
+                    <img src="{{url_for('static', filename='/images/profile.pic.jpg')}}" alt="profile picture" class="pro_pic">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col3">
+                <br>
+                <h4>Add a Comment..</h4>
+                <form action="/{{post.id}}/comment" method="post" class="dashform">
+                    <textarea id="summernote" name="editordata" name="content" id="content"></textarea>
+                    <br>
+                    <input type="submit" value="post" class="post">
+                </form>
+                <br>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row4">
+            <h2>Oops! No more comments!</h2>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='/js/new_post.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/like_post.js') }}"></script>
+    {% endblock %}
+</body>

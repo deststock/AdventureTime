@@ -1,0 +1,76 @@
+{% extends 'login.html' %}
+
+<body>
+    {% block content %}
+    <div class="container2"  >
+        <div class="nav">
+            <div class="nav-left">
+                <h1 class="nav-title"> It's Adventure Time! </h1>
+            </div>
+            <div class="nav-links">
+                <a href="/logout" class="links">Logout</a>
+                <a href="/{{user.id}}/profile" class="links">My Profile</a>
+            </div>
+        </div>   
+        <div class="row3" >
+            <div class="col2">
+                <div class="">
+                    {% if user.profile_picture %}
+                    <img src="{{user.profile_picture}}" alt="profile picture" class="pro_pic">
+                    {% else %}
+                    <img src="{{url_for('static', filename='/images/profile.pic.jpg')}}" alt="profile picture" class="pro_pic">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col3">
+                <form action="/posted" method="post" class="dashform">
+                    <textarea id="summernote" name="editordata" name="content" id="content"></textarea>
+                    <br>
+                    <input type="text" name="location" id="location" placeholder=" Location">
+                    <br>
+                    <br>
+                    <input type="submit" value="post" class="post">
+                </form>
+                <br>
+            </div>
+        </div>
+        {% for post in posts %}
+        <div class="row3">
+            <div class="col2">
+                <div class="">
+                    {% if post.profile_picture %}
+                    <img src="{{user.profile_picture}}" alt="profile picture" class="pro_pic">
+                    {% else %}
+                    <img src="{{url_for('static', filename='/images/profile.pic.jpg')}}" alt="profile picture" class="pro_pic">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col4">
+                <br>
+                <h3 class="post_name"> {{post.first_name}} {{post.last_name}} <span class="username">@{{post.username}}</span></h3>
+                <p>  <img src="{{url_for('static', filename='/images/ping.png')}}" alt="location" class="small_image">   {{post.location}} </p>
+                {{post.content|safe}} 
+                <div class="actions">
+                    <div class="like_comment">
+                        <a href="/api/{{post.id}}/like" id="like"> <img src="{{url_for('static', filename='/images/heart.png')}}" alt="location" class="small_image"> {{post.num_likes}}</a>
+                    <a href="/{{post.id}}/view" class=""> <img src="{{url_for('static', filename='/images/comment.png')}}" alt="location" class="small_image"></a>
+                </div>
+                
+                <div class="trash">
+                        {% if post.user_id == user.id %}
+                        <a href="/dashboard/{{post.id}}/delete" class=""> <img src="{{url_for('static', filename='/images/trash.png')}}" alt="location" class="small_image"></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row4">
+            <h2>Oops! No more posts!</h2>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='/js/new_post.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/like_post.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

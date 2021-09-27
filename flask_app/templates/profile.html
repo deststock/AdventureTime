@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <title>Adventure Time</title>
+    </head>
+    <body>
+        {% block content %}
+        <div class="container3"  >
+        <div class="nav_profile">
+            <div class="nav-left">
+                <a href="/dashboard" class="links_feed"> ← {{user.first_name}}</a>
+            </div>
+            <div class="nav-links">
+                
+            </div>
+        </div>   
+        <div class="row1">
+            {% if user.header %}
+            <img src="{{user.header}}" alt="header" class="header">
+            {% else %}
+            <img src="{{url_for('static', filename='/images/header.jpg')}}" alt="header" class="header">
+            {% endif %}
+        </div>
+        <div class="row2">
+            <div class="col2">
+                <div class="main_pic">
+                    {% if user.profile_picture %}
+                    <img src="{{user.profile_picture}}" alt="profile picture" class="main_pro">
+                    {% else %}
+                    <img src="{{url_for('static', filename='/images/profile.pic.jpg')}}" alt="profile picture" class="main_pro">
+                    {% endif %}
+                </div>
+                <h3 class="profile_info">{{user.first_name}} {{user.last_name}}</h3>
+                <h3 class="username">@{{user.username}}</h3>
+                <div class="general">
+                    <img src="{{url_for('static', filename='/images/ping.png')}}" alt="location" class="small_image">
+                    <p> {{user.location}} </p>
+                    <img src="{{url_for('static', filename='/images/cupcake.png')}}" alt="location" class="small_image">
+                    <p> Born {{user.birthdate}} </p>
+                </div>
+                <div class="follow_info">
+                    <a href="" class="follow"> Following</a>
+                    <a href="" class="follow"> Followers</a>
+                </div>
+                <div class="profile_data">
+                    <a href="/{{user.id}}/profile" class="active"> My Posts</a>
+                    <a href="/{{user.id}}/profile/likes" class="data"> My Likes</a>
+                </div>
+            </div>
+            <div class="col3">
+                <div class="edit_link">
+                    <a href="/{{user.id}}/edit" class="edit"> Edit Profile </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<div class="container2">
+    {% for post in posts %}
+        <div class="row3">
+            <div class="col2">
+                <div class="">
+                    {% if post.profile_picture %}
+                    <img src="{{user.profile_picture}}" alt="profile picture" class="pro_pic">
+                    {% else %}
+                    <img src="{{url_for('static', filename='/images/profile.pic.jpg')}}" alt="profile picture" class="pro_pic">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col4">
+                <br>
+                <h3 class="post_name"> {{post.first_name}} {{post.last_name}} <span class="username">@{{post.username}}</span></h3>
+                <p>  <img src="{{url_for('static', filename='/images/ping.png')}}" alt="location" class="small_image">   {{post.location}} </p>
+                {{post.content|safe}} 
+                <div class="actions">
+                    <div class="like_comment">
+                        <a href="/api/profile/{{post.post_id}}/like" id="like"> <img src="{{url_for('static', filename='/images/heart.png')}}" alt="location" class="small_image"> {{post.num_likes}}</a>
+                    <a href="" class=""> <img src="{{url_for('static', filename='/images/comment.png')}}" alt="location" class="small_image"></a>
+                </div>
+                
+                <div class="trash">
+                        {% if post.user_id == user.id %}
+                        <a href="/profile/{{post.post_id}}/delete" class=""> <img src="{{url_for('static', filename='/images/trash.png')}}" alt="location" class="small_image"></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row4">
+            <h2>Oops! No more posts!</h2>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'login.html' %}
+
+<body>
+    {% block content %}
+    <div class="container2" >
+        <div class="nav_profile">
+            <div class="nav-left">
+                <a href="/dashboard" class="links_feed"> ← My Feed</a>
+            </div>
+            <div class="nav-links">
+                
+            </div>
+        </div>
+        <form action="/posted" method="post" class="dashform">
+            <textarea id="summernote" name="editordata" name="content" id="content"></textarea>
+            <br>
+            <span class="errors" id="content_error"></span>
+            <br>
+            <input type="submit" value="post" class="post">
+        </form>
+    </div>   
+    <script src="{{ url_for('static', filename='/js/new_post.js') }}"></script>
+    {% endblock %}
+</body>
+</html>
