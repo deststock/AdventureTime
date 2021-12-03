@@ -21,7 +21,7 @@
     border-bottom: 4px solid rgb(84, 100, 66);
 }
 
-.container {
+.container1 {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -30,6 +30,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0px; 
 }
 
 .container2 {
@@ -87,7 +88,7 @@
 }
 
 .dashform {
-    padding-top: 30px;
+    padding-top: 180px;
 }
 
 .edit {
@@ -218,6 +219,8 @@ input {
     justify-content: space-between;
     margin: 0px 100px;
     border: 1px solid gainsboro;
+    position: fixed;
+    z-index: 1;
 }
 
 .nav_profile {
@@ -230,6 +233,8 @@ input {
     justify-content: space-between;
     margin: 0px 100px;
     border: 1px solid gainsboro;
+    position: fixed;
+    z-index: 1;
 }
 
 .nav-title {

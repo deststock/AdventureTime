@@ -114,7 +114,6 @@ class User:
         query = "SELECT posts.id, posts.content, posts.location, posts.user_id, users.first_name, users.last_name, users.username, users.id, count(likes.post_id) AS num_likes from posts LEFT JOIN users ON posts.user_id = users.id LEFT JOIN likes ON posts.id = likes.post_id LEFT JOIN comments ON posts.id = comments.post_id WHERE likes.user_id = %(id)s GROUP BY posts.id ORDER BY posts.created_at DESC;"
         results = connectToMySQL('adventure_schema').query_db(query,data)
         post_info = []
-        print(results)
         for row in results: 
             data = {
                 "first_name": row['first_name'],
